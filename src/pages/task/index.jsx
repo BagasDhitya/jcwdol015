@@ -1,5 +1,6 @@
 import TodoApp from "../../components/TodoApp";
 import LongTaskCount from "../../components/LongTaskCount";
+import TodoAppReducer from "../../components/TodoAppReducer";
 
 const arrayTask = [
   "create todo list app - create",
@@ -11,7 +12,8 @@ const Task = () => {
   return (
     <main className="w-screen h-screen bg-white flex justify-center items-center">
       {/* <TodoApp /> */}
-      <LongTaskCount tasks={arrayTask} />
+      {/* <LongTaskCount tasks={arrayTask} /> */}
+      <TodoAppReducer />
     </main>
   );
 };
