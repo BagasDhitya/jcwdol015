@@ -8,7 +8,7 @@ const arrayTask = [
   "abcd",
 ];
 
-const Task = () => {
+function Task() {
   return (
     <main className="w-screen h-screen bg-white flex justify-center items-center">
       {/* <TodoApp /> */}
@@ -16,6 +16,6 @@ const Task = () => {
       <TodoAppReducer />
     </main>
   );
-};
+}
 
 export default Task;

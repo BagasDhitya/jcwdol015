@@ -4,7 +4,7 @@ import Register from "../pages/auth/register";
 import Login from "../pages/auth/login";
 import Task from "../pages/task";
 
-const Router = () => {
+function Router() {
   return (
     <BrowserRouter>
       <Routes>
@@ -14,6 +14,6 @@ const Router = () => {
       </Routes>
     </BrowserRouter>
   );
-};
+}
 
 export default Router;
