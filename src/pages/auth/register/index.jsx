@@ -27,7 +27,6 @@ function Register() {
     setError(errors);
     if (valid) {
       Cookies.set("email", email, { expires: 7 });
-      Cookies.set("password", password, { expires: 7 });
       Swal.fire({
         title: "Successfully registered",
         text: "Successfully registered with your account",

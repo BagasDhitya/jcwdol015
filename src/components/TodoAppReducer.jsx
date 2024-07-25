@@ -1,4 +1,7 @@
 import { useReducer, useRef } from "react";
+import useCustomNavigate from "../hooks/useCustomNavigate";
+import Cookies from "js-cookie";
+import Swal from "sweetalert2";
 
 const initialState = {
   tasks: [],
@@ -20,15 +23,30 @@ function reducer(state, action) {
 }
 
 function TodoAppReducer() {
+  const { navigateTo } = useCustomNavigate();
   const [state, dispatch] = useReducer(reducer, initialState);
   const inputRef = useRef(null);
 
   function addTask() {
-    dispatch({
-      type: "ADD_TASK",
-      payload: inputRef.current.value,
-    });
-    inputRef.current.value = "";
+    const email = Cookies.get("email");
+    if (email !== "admin@mail.com") {
+      Swal.fire({
+        title: "You don't have permission to create a new task",
+        text: "Please use another email address",
+        icon: "error",
+        confirmButtonText: "OK",
+      }).then((response) => {
+        if (response.isConfirmed) {
+          navigateTo("/auth/register");
+        }
+      });
+    } else {
+      dispatch({
+        type: "ADD_TASK",
+        payload: inputRef.current.value,
+      });
+      inputRef.current.value = "";
+    }
   }
 
   return (
