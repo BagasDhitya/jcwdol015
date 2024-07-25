@@ -2,6 +2,8 @@ import TodoApp from "../../components/TodoApp";
 import LongTaskCount from "../../components/LongTaskCount";
 import TodoAppReducer from "../../components/TodoAppReducer";
 
+import Layout from "../../components/Layout";
+
 const arrayTask = [
   "create todo list app - create",
   "create todo list app - update",
@@ -10,11 +12,11 @@ const arrayTask = [
 
 function Task() {
   return (
-    <main className="w-screen h-screen bg-white flex justify-center items-center">
+    <Layout>
       {/* <TodoApp /> */}
       {/* <LongTaskCount tasks={arrayTask} /> */}
       <TodoAppReducer />
-    </main>
+    </Layout>
   );
 }
 

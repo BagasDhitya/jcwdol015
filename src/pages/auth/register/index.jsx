@@ -3,6 +3,8 @@ import useCustomNavigate from "../../../hooks/useCustomNavigate";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 
+import Layout from "../../../components/Layout";
+
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,6 +24,7 @@ function Register() {
 
     if (!password) {
       errors.password = "Password is required";
+      valid = false;
     }
 
     setError(errors);
@@ -41,7 +44,7 @@ function Register() {
   }
 
   return (
-    <main className="flex justify-center items-center w-screen h-screen bg-gray-100">
+    <Layout>
       <form
         onSubmit={handleRegister}
         className="bg-white p-6 rounded-lg shadow-lg"
@@ -80,7 +83,7 @@ function Register() {
           </button>
         </div>
       </form>
-    </main>
+    </Layout>
   );
 }
 
